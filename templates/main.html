@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- SELECT DROPDOWN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/main.css')}}">
+    <title>Track my BUS</title>
+</head>
+<body>
+
+    <section class="header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a href="/main">
+                <img style="height: 70px;" src="{{url_for('static' , filename = 'images/logo.png')}}">
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarMenu" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trackmybus"><i class="fa-solid fa-house fa-sm"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-code fa-sm"></i>Developers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: azure;" ><i class="fa-solid fa-user"></i>Welcome, {{name}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}"><i class="fa-solid fa-right-from-bracket fa-sm"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <!-- SELECT DETAILS -->
+    <section>
+        <form action="{{url_for('showBus')}}" method="post">
+
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-lg">
+                        <span class="span_text">From place</span>
+                        <select name="depature"  id="depature" class="selectpicker" data-live-search="true" data-size="3" title="Select Depature Place">
+                            {% for row in depart_city %}
+                                <option value="{{row[1]}}">{{row[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>    
+    
+                    <div class="col-lg">
+                        <span class="span_text">To place</span>
+                        <select name="arrive" id="arrive" class="selectpicker" data-live-search="true" data-size="3" title="Select Arrival Place">
+                            {% for row in arrival_city %}
+                                <option value="{{row[1]}}">{{row[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+    
+                    <div class="col-lg">
+                        <span class="span_text">Start time</span>
+                        <input class="time" name="start" id="start" type="time">
+                    </div>
+    
+                    <div class="col-lg">
+                        <span class="span_text">End time</span>
+                        <input class="time" name="end" id="end" type="time" >
+                    </div>
+
+                    <div class="col-lg">
+                        <button class="search" type="submit" style="padding: 3px;"><i class="fa-solid fa-magnifying-glass"></i><span class="search-word">Search</span></button>
+                    </div>
+    
+                </div>
+            </div>
+        </form>
+
+        <div class="how-we-work" style="margin-top: 30px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1"></div>
+
+                    <div class="col-10">
+                        <p class="work-head">How we work</p>
+                        <div class="work-content" >
+                            <!-- pt1 -->
+                            <i class="fa-solid fa-bus "></i><span class="span-content"><b>Track my Bus</b> application lets you find the right bus for you.</span> <br>
+                            <!-- pt2 -->
+                            <i class="fa-solid fa-bus "></i><span class="span-content">Using Track my Bus, you can find the buses that are available according to your <b>convenient time.</b></span> <br>
+                            <!-- pt1 -->
+                            <i class="fa-solid fa-bus "></i><span class="span-content">Track my Bus application is available for <b>Tamil Nadu State Transport Corporation</b> & <b>State Express Transport Corporation</b>.</span> <br>
+                            <!-- pt1 -->
+                            <i class="fa-solid fa-bus "></i><span class="span-content">Track my Bus application is available for both <b>Mobile</b> and <b>Desktop</b>.</span>
+                        </div>
+                    </div>
+
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

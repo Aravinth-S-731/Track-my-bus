@@ -1,0 +1,138 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.header{
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(rgb(0, 0, 0,0.85), rgba(0, 0, 0, 0.8)) ,url("/static/images/bus_background.jpg");
+}
+
+/* ----------NAVBAR---------- */
+.navbar .navbar-collapse .navbar-nav .nav-item .nav-link{
+    font-size: 16px;
+    margin-right: 60px;
+    color: rgb(255, 255, 255);
+    transition: 1s;
+}
+.navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover{
+    color: aqua;
+    transition: 1s;
+}
+.navbar .navbar-collapse .navbar-nav .nav-item .nav-link .fa-solid{
+    padding: 5px;
+}
+
+
+/* ---------- BACKGROUND IMAGE ---------- */
+.background-image{
+    align-items: center;
+    justify-content: center;
+    height: 520px;
+    width: 100%;
+}
+
+/* ---------- TITLE ---------- */
+.animate-charcter
+{
+    text-transform: uppercase;
+    background-image: linear-gradient(
+    -225deg,
+    #67e8e8 0%,
+    #67e8e8 29%,
+    #0095ff 67%,
+    #ffffff 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 60px;
+    margin-top: 60px;
+}
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+.subtitle{
+    text-align: center;
+    font-style: italic;
+    color: #bfbfbf;
+}
+
+/* ---------- LOGIN BUTTON ---------- */
+.loginButton-container{
+    padding-top: 50px;
+    text-align: center;
+}
+.loginButton{
+    background-color: #1b9d9d;
+    color: black;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    width: 150px;
+    height: 40px;
+    transition: 0.7s;
+    border: none;
+}
+.loginButton:hover{
+    transition: 0.7s;
+    border: none;
+    background-color: #fff;
+}
+.signupButton-container{
+    padding-top: 10px;
+    text-align: center;
+}
+.no-account-txt{
+    color: #ffffff;
+}
+.signupButton{
+    color: aqua;
+    transition: 1s;
+}
+.signupButton:hover{
+    font-size: 18px;
+    text-decoration: none;
+    color: rgb(0, 132, 255);
+    transition: 1s;
+}
+
+/* ---------- FOOTER ---------- */
+.footer{
+    text-align: center;
+}
+.footer .footer-link{
+    display: inline-block;
+    margin-top: 110px;
+    margin-left: 100px;
+    margin-right: 100px;
+    color: rgb(255, 222, 178);
+    transition: 0.7s;
+}
+.footer .footer-link:hover{
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.7s;
+}

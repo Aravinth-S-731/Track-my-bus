@@ -1,0 +1,53 @@
+
+# mycursor.execute("SELECT * FROM name track_my_bus.user_login")
+# myres = mycursor.fetchall() 
+# print(myres)
+# username = "test123"
+# password = '123456789'
+# print(mycursor.execute('SELECT * FROM track_my_bus.user_login WHERE username=%s AND password=%s',(username,password)))
+
+------------------------AFTER LOGIN DISPLAY---------------------------
+Hello World
+<div>
+    <h2>Welcome, {{name}}</h2>
+    <a href="{{url_for('logout')}}">logout</a>
+</div>
+
+-----------------------LOGIN GET VALUE--------------------------------
+<h1 class="login">Login</h1>
+    <form action="{{url_for('login')}}" method="post">
+        <label>USERNAME</label>
+        <input type="text" name="username" id="username" required>
+        <label>PASSWORD</label>
+        <input type="password" name="password" id="password" required>
+        <input type="submit" value="Login">
+    </form>
+
+
+---------------------on click dp dsiplay details ----------------------
+<div class="mentor">
+            <div>
+                <input id="twitter" type="checkbox">
+                <label for="twitter">
+                    <img class="disp-pic" src="{{url_for('static', filename='images/disp_pic/stalin_sir.png')}}" >
+                </label>
+                <div class="text">twitter</div>
+            </div>
+        </div>
+
+----css---
+.disp-pic{
+    width: 50px;
+    height: 50px;
+}
+.text,input {
+    display: none;
+}
+input:checked ~ .text {
+    display: block;
+}
+
+-------------------------------------
+
+flask run
+flask run --host=0.0.0.0
