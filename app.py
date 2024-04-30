@@ -3,11 +3,11 @@ import mysql.connector
 
 mydb = mysql.connector.connect(
     host = 'localhost',
-    user = "Aravinth_Sayur",
-    password = "123456789",
+    user = "root",
+    password = "@Arvi7777",
     database = 'track_my_bus'
 )
-mycursor = mydb.cursor()   
+mycursor = mydb.cursor()
 
 app = Flask(__name__)
 app.secret_key = "secret key"
